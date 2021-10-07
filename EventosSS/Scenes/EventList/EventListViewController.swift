@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EventListViewController.swift
 //  EventosSS
 //
 //  Created by Hiago Chagas on 07/10/21.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EventListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        self.view.backgroundColor = .blue
+        
     }
 
-
 }
-
