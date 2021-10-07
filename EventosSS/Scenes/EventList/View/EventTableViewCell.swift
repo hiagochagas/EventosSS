@@ -10,8 +10,9 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
 
     public let eventImageView: UIImageView = {
-        let img = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
+        img.backgroundColor = .blue
         return img
     }()
     
@@ -19,6 +20,7 @@ class EventTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Title"
+        lbl.font = .systemFont(ofSize: 17, weight: .bold)
         return lbl
     }()
     
@@ -34,6 +36,7 @@ class EventTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "DD/MM/YYYY"
+        lbl.font = .systemFont(ofSize: 15, weight: .regular)
         return lbl
     }()
     
@@ -60,7 +63,7 @@ class EventTableViewCell: UITableViewCell {
             eventDateLabel.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 8),
             eventDescriptionLabel.leftAnchor.constraint(equalTo: eventNameLabel.leftAnchor, constant: 0),
             eventDescriptionLabel.topAnchor.constraint(equalTo: eventDateLabel.bottomAnchor, constant: 8),
-            eventDescriptionLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            eventDescriptionLabel.rightAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             eventDescriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }

@@ -17,6 +17,7 @@
 		6E81E1BB270FAD9000E894E1 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1BA270FAD9000E894E1 /* EventListViewController.swift */; };
 		6E81E1BF270FAF7F00E894E1 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1BE270FAF7F00E894E1 /* EventListView.swift */; };
 		6E81E1C1270FB32000E894E1 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C0270FB32000E894E1 /* EventTableViewCell.swift */; };
+		6E81E1C4270FBCE300E894E1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C3270FBCE300E894E1 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6E81E1BA270FAD9000E894E1 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		6E81E1BE270FAF7F00E894E1 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		6E81E1C0270FB32000E894E1 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		6E81E1C3270FBCE300E894E1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		6E81E186270FAC2000E894E1 /* EventosSS */ = {
 			isa = PBXGroup;
 			children = (
+				6E81E1C2270FBCC800E894E1 /* Model */,
 				6E81E1BC270FADC900E894E1 /* Shared */,
 				6E81E1B7270FAD5900E894E1 /* Scenes */,
 				6E81E195270FAC2100E894E1 /* Info.plist */,
@@ -168,6 +171,14 @@
 				6E81E1C0270FB32000E894E1 /* EventTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6E81E1C2270FBCC800E894E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E81E1C3270FBCE300E894E1 /* Event.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +315,7 @@
 				6E81E188270FAC2000E894E1 /* AppDelegate.swift in Sources */,
 				6E81E18A270FAC2000E894E1 /* SceneDelegate.swift in Sources */,
 				6E81E1C1270FB32000E894E1 /* EventTableViewCell.swift in Sources */,
+				6E81E1C4270FBCE300E894E1 /* Event.swift in Sources */,
 				6E81E1BF270FAF7F00E894E1 /* EventListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
