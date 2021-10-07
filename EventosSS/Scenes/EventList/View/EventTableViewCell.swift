@@ -26,6 +26,7 @@ class EventTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Description"
+        lbl.numberOfLines = 0
         return lbl
     }()
     
@@ -59,6 +60,8 @@ class EventTableViewCell: UITableViewCell {
             eventDateLabel.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 8),
             eventDescriptionLabel.leftAnchor.constraint(equalTo: eventNameLabel.leftAnchor, constant: 0),
             eventDescriptionLabel.topAnchor.constraint(equalTo: eventDateLabel.bottomAnchor, constant: 8),
+            eventDescriptionLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
+            eventDescriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
     
