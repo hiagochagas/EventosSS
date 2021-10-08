@@ -1,5 +1,5 @@
 //
-//  Event.swift
+//  EventDAO.swift
 //  EventosSS
 //
 //  Created by Hiago Chagas on 07/10/21.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Event: Decodable {
-    let people: [Person]
-    let date: Int
-    let description: String
-    let imageURL: String
-    let longitude, latitude, price: Double
-    let title, id: String
+struct EventDAO: Decodable {
+    var people: [PersonDAO]
+    var date: Int
+    var description: String
+    var imageURL: String
+    var longitude, latitude, price: Double
+    var title, id: String
     
     enum CodingKeys: String, CodingKey {
         case people
