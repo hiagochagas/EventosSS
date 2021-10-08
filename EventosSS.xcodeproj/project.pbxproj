@@ -18,6 +18,9 @@
 		6E81E1BF270FAF7F00E894E1 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1BE270FAF7F00E894E1 /* EventListView.swift */; };
 		6E81E1C1270FB32000E894E1 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C0270FB32000E894E1 /* EventTableViewCell.swift */; };
 		6E81E1C4270FBCE300E894E1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C3270FBCE300E894E1 /* Event.swift */; };
+		6E81E1C7270FBE0700E894E1 /* APIRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C6270FBE0700E894E1 /* APIRequester.swift */; };
+		6E81E1C9270FC3EF00E894E1 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C8270FC3EF00E894E1 /* Person.swift */; };
+		6E81E1CC270FC52000E894E1 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1CB270FC52000E894E1 /* EventListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		6E81E1BE270FAF7F00E894E1 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		6E81E1C0270FB32000E894E1 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		6E81E1C3270FBCE300E894E1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		6E81E1C6270FBE0700E894E1 /* APIRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequester.swift; sourceTree = "<group>"; };
+		6E81E1C8270FC3EF00E894E1 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		6E81E1CB270FC52000E894E1 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		6E81E186270FAC2000E894E1 /* EventosSS */ = {
 			isa = PBXGroup;
 			children = (
+				6E81E1C5270FBDE400E894E1 /* Service */,
 				6E81E1C2270FBCC800E894E1 /* Model */,
 				6E81E1BC270FADC900E894E1 /* Shared */,
 				6E81E1B7270FAD5900E894E1 /* Scenes */,
@@ -140,6 +147,7 @@
 		6E81E1B8270FAD6200E894E1 /* EventList */ = {
 			isa = PBXGroup;
 			children = (
+				6E81E1CA270FC50000E894E1 /* ViewModel */,
 				6E81E1BD270FAF4400E894E1 /* View */,
 			);
 			path = EventList;
@@ -177,8 +185,25 @@
 			isa = PBXGroup;
 			children = (
 				6E81E1C3270FBCE300E894E1 /* Event.swift */,
+				6E81E1C8270FC3EF00E894E1 /* Person.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6E81E1C5270FBDE400E894E1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6E81E1C6270FBE0700E894E1 /* APIRequester.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6E81E1CA270FC50000E894E1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6E81E1CB270FC52000E894E1 /* EventListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,10 +336,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E81E1C7270FBE0700E894E1 /* APIRequester.swift in Sources */,
 				6E81E1BB270FAD9000E894E1 /* EventListViewController.swift in Sources */,
 				6E81E188270FAC2000E894E1 /* AppDelegate.swift in Sources */,
 				6E81E18A270FAC2000E894E1 /* SceneDelegate.swift in Sources */,
+				6E81E1C9270FC3EF00E894E1 /* Person.swift in Sources */,
 				6E81E1C1270FB32000E894E1 /* EventTableViewCell.swift in Sources */,
+				6E81E1CC270FC52000E894E1 /* EventListViewModel.swift in Sources */,
 				6E81E1C4270FBCE300E894E1 /* Event.swift in Sources */,
 				6E81E1BF270FAF7F00E894E1 /* EventListView.swift in Sources */,
 			);

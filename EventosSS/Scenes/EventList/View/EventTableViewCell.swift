@@ -28,7 +28,7 @@ class EventTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Description"
-        lbl.numberOfLines = 0
+        lbl.numberOfLines = 3
         return lbl
     }()
     

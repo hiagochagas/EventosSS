@@ -10,14 +10,26 @@ import UIKit
 class EventListViewController: UIViewController {
     
     private let contentView = EventListView()
+    private let viewModel = EventListViewModel()
     private let cellIdentifier = "EventListCellIdentifier"
+    private var events: [Event] {
+        get {
+            return viewModel.events
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewController = self
+        viewModel.getAllEvents()
         contentView.tableView.register(EventTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
         view = contentView
+    }
+    
+    public func reloadData() {
+        contentView.tableView.reloadData()
     }
 
 }
@@ -29,14 +41,15 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! EventTableViewCell
-        if indexPath.row == 1 {
-            cell.eventDescriptionLabel.text = "LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM "
-        }
+        let event = events[indexPath.row]
+        cell.eventNameLabel.text = event.title
+        cell.eventDescriptionLabel.text = event.description
+        cell.eventDateLabel.text = "Data: \(event.date)"
         return cell
     }
     
