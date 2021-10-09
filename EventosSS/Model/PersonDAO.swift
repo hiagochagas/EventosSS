@@ -8,6 +8,6 @@
 import Foundation
 
 struct PersonDAO: Decodable {
-    var name: String
-    var email: String
+    public var name: String
+    public var email: String
 }

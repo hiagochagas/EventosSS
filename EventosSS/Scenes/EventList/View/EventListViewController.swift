@@ -49,7 +49,9 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
         let event = events[indexPath.row]
         cell.eventNameLabel.text = event.title
         cell.eventDescriptionLabel.text = event.description
-        cell.eventDateLabel.text = "Data: \(event.date)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        cell.eventDateLabel.text = dateFormatter.string(from: event.date)
         return cell
     }
     

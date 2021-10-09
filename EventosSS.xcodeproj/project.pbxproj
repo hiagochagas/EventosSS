@@ -21,6 +21,8 @@
 		6E81E1C7270FBE0700E894E1 /* APIRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C6270FBE0700E894E1 /* APIRequester.swift */; };
 		6E81E1C9270FC3EF00E894E1 /* PersonDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1C8270FC3EF00E894E1 /* PersonDAO.swift */; };
 		6E81E1CC270FC52000E894E1 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E1CB270FC52000E894E1 /* EventListViewModel.swift */; };
+		6E8675072711132C001A2743 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8675062711132C001A2743 /* Event.swift */; };
+		6E86750927111380001A2743 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86750827111380001A2743 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		6E81E1C6270FBE0700E894E1 /* APIRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequester.swift; sourceTree = "<group>"; };
 		6E81E1C8270FC3EF00E894E1 /* PersonDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDAO.swift; sourceTree = "<group>"; };
 		6E81E1CB270FC52000E894E1 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		6E8675062711132C001A2743 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		6E86750827111380001A2743 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 			children = (
 				6E81E1C3270FBCE300E894E1 /* EventDAO.swift */,
 				6E81E1C8270FC3EF00E894E1 /* PersonDAO.swift */,
+				6E8675062711132C001A2743 /* Event.swift */,
+				6E86750827111380001A2743 /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +346,8 @@
 				6E81E1BB270FAD9000E894E1 /* EventListViewController.swift in Sources */,
 				6E81E188270FAC2000E894E1 /* AppDelegate.swift in Sources */,
 				6E81E18A270FAC2000E894E1 /* SceneDelegate.swift in Sources */,
+				6E86750927111380001A2743 /* Person.swift in Sources */,
+				6E8675072711132C001A2743 /* Event.swift in Sources */,
 				6E81E1C9270FC3EF00E894E1 /* PersonDAO.swift in Sources */,
 				6E81E1C1270FB32000E894E1 /* EventTableViewCell.swift in Sources */,
 				6E81E1CC270FC52000E894E1 /* EventListViewModel.swift in Sources */,

@@ -8,12 +8,12 @@
 import Foundation
 
 struct EventDAO: Decodable {
-    var people: [PersonDAO]
-    var date: Int
-    var description: String
-    var imageURL: String
-    var longitude, latitude, price: Double
-    var title, id: String
+    public var people: [PersonDAO]
+    public var date: Int
+    public var description: String
+    public var imageURL: String
+    public var longitude, latitude, price: Double
+    public var title, id: String
     
     enum CodingKeys: String, CodingKey {
         case people

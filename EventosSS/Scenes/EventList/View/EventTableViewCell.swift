@@ -28,6 +28,7 @@ class EventTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Description"
+        lbl.font = .systemFont(ofSize: 13, weight: .regular)
         lbl.numberOfLines = 3
         return lbl
     }()
