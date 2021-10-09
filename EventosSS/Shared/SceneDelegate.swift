@@ -13,13 +13,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = EventListViewController()
-        self.window = window
-        window.makeKeyAndVisible()
-        
+        let mainVC = EventListViewController()
+        mainVC.title = "Eventos"
+        mainVC.view.backgroundColor = .systemBackground
+        let mainNav = UINavigationController(rootViewController: mainVC)
+        mainNav.navigationBar.backgroundColor = .systemBackground
+        mainNav.navigationBar.prefersLargeTitles = true
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = mainNav
+        window?.makeKeyAndVisible()
     }
 
 
