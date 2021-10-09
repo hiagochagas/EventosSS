@@ -13,13 +13,13 @@ struct Event {
     public let title: String
     public let date: Date
     public let description: String
-    public let image: UIImage?
+    public let imageURL: String
     
-    public init(title: String, date: Date, description: String, image: UIImage?, people: [Person]) {
+    public init(title: String, date: Date, description: String, imageURL: String, people: [Person]) {
         self.title = title
         self.date = date
         self.description = description
-        self.image = image
+        self.imageURL = imageURL
         self.people = people
     }
 }

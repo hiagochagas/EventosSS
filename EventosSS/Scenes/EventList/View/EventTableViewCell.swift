@@ -20,6 +20,7 @@ class EventTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Title"
+        lbl.numberOfLines = 2
         lbl.font = .systemFont(ofSize: 17, weight: .bold)
         return lbl
     }()
@@ -58,7 +59,10 @@ class EventTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             eventImageView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
             eventImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            eventImageView.widthAnchor.constraint(equalToConstant: 80),
+            eventImageView.heightAnchor.constraint(equalToConstant: 80),
             eventNameLabel.leftAnchor.constraint(equalTo: eventImageView.rightAnchor, constant: 16),
+            eventNameLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             eventNameLabel.topAnchor.constraint(equalTo: eventImageView.topAnchor, constant: 0),
             eventDateLabel.leftAnchor.constraint(equalTo: eventNameLabel.leftAnchor, constant: 0),
             eventDateLabel.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 8),
