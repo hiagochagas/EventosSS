@@ -42,8 +42,8 @@ class EventListViewModel {
                 DispatchQueue.main.async {
                     guard let data = data else { return }
                     let imageToCache = UIImage(data: data)
-                    EventListViewModel.imageCache.setObject(imageToCache ?? UIImage(systemName: "xmark.seal.fill")!, forKey: url as NSString)
-                    view.image = imageToCache
+                    EventListViewModel.imageCache.setObject(imageToCache ?? UIImage(named: "NotFound.jpg")!, forKey: url as NSString)
+                    view.image = imageToCache != nil ? imageToCache : UIImage(named: "NotFound.jpg")
                 }
             }
         }
