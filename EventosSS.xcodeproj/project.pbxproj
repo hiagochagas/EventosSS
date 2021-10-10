@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2ABA4127137E0100893FBC /* APIRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2ABA4027137E0100893FBC /* APIRequesterTests.swift */; };
 		6E81E188270FAC2000E894E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E187270FAC2000E894E1 /* AppDelegate.swift */; };
 		6E81E18A270FAC2000E894E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81E189270FAC2000E894E1 /* SceneDelegate.swift */; };
 		6E81E191270FAC2100E894E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E81E190270FAC2100E894E1 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E2ABA4027137E0100893FBC /* APIRequesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequesterTests.swift; sourceTree = "<group>"; };
 		6E81E184270FAC2000E894E1 /* EventosSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventosSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E81E187270FAC2000E894E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E81E189270FAC2000E894E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				6E81E19E270FAC2200E894E1 /* EventosSSTests.swift */,
+				6E2ABA4027137E0100893FBC /* APIRequesterTests.swift */,
 			);
 			path = EventosSSTests;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E81E19F270FAC2200E894E1 /* EventosSSTests.swift in Sources */,
+				6E2ABA4127137E0100893FBC /* APIRequesterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

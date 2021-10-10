@@ -1,0 +1,57 @@
+//
+//  APIRequesterTests.swift
+//  EventosSSTests
+//
+//  Created by Hiago Chagas on 10/10/21.
+//
+
+import XCTest
+@testable import EventosSS
+
+class APIRequesterTests: XCTestCase {
+    var sut: APIRequester?
+    
+    override func setUp() {
+        sut = APIRequester()
+    }
+    
+    func test_getEvents_shouldNotBeEmpty() {
+        let promise = expectation(description: "The API is not empty")
+        sut?.fetchAllEvents { events, error in
+            if let error = error {
+                XCTFail("An error of type \(error) occurred")
+            }
+            if let events = events {
+                if events.count > 0 {
+                    promise.fulfill()
+                } else {
+                    XCTFail("The amount of events returned was equal to 0.")
+                }
+            }
+        }
+        wait(for: [promise], timeout: 5.0)
+    }
+    
+    func test_downloadImageFromGivenUrl_shouldNotReturnNil() {
+        let promise = expectation(description: "The downloaded image is not nil")
+        let urlString = "https://picsum.photos/200"
+        sut?.downloadImage(fromURL: urlString, completionHandler: { data in
+            guard let data = data else {
+                XCTFail("The data returned was equal to nil")
+                return
+            }
+            guard let image = UIImage(data: data) else {
+                XCTFail("The image could not be created")
+                return
+            }
+            promise.fulfill()
+
+        })
+        wait(for: [promise], timeout: 5.0)
+    }
+    
+    override func tearDown() {
+        sut = nil
+    }
+    
+}

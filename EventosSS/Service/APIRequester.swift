@@ -10,8 +10,9 @@ import UIKit
 
 class APIRequester {
     private let apiURL = "http://5f5a8f24d44d640016169133.mockapi.io/api/events"
+    private let session: URLSession = URLSession.shared
     
-    public func fetchAllEvents(session: URLSession = URLSession.shared, completion: @escaping ([EventDAO]?, Error?) -> ()) {
+    public func fetchAllEvents(completion: @escaping ([EventDAO]?, Error?) -> ()) {
         guard let url = URL(string: apiURL) else { return }
         let task = session.dataTask(with: url){ data, response, error in
             if error != nil{
@@ -32,7 +33,7 @@ class APIRequester {
     
     func downloadImage(fromURL imgURL: String, completionHandler: @escaping (Data?) -> Void){
         guard let url = URL(string: imgURL) else { return }
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
             if error != nil{
                 print(error?.localizedDescription ?? "An error was found while downloading the image")
                 return
