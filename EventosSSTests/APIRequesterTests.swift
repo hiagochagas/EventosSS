@@ -40,7 +40,7 @@ class APIRequesterTests: XCTestCase {
                 XCTFail("The data returned was equal to nil")
                 return
             }
-            guard let image = UIImage(data: data) else {
+            guard UIImage(data: data) != nil else {
                 XCTFail("The image could not be created")
                 return
             }

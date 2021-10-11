@@ -11,12 +11,11 @@ import UIKit
 class EventListViewModel {
     
     private let apiRequester = APIRequester()
-    public weak var viewController: EventListViewController?
     private static let imageCache = NSCache<NSString, UIImage>()
-    public var events: [Event] = []
     
-    func getAllEvents() {
+    func getAllEvents(completionHandler: @escaping ([Event]) -> Void) {
         apiRequester.fetchAllEvents { (result, error) in
+            var events: [Event] = []
             DispatchQueue.main.async {
                 if let result = result {
                     result.forEach { eventDAO in
@@ -25,25 +24,25 @@ class EventListViewModel {
                             return Person(name: person.name, email: person.email)
                         }
                         let event = Event(title: eventDAO.title, date: date, description: eventDAO.description, imageURL: eventDAO.imageURL, people: people)
-                        self.events.append(event)
+                        events.append(event)
                     }
-                    self.viewController?.reloadData()
+                    completionHandler(events)
                 }
             }
         }
     }
     
-    func fetchImage(fromURL url: String, toView view: UIImageView) {
+    func fetchImage(fromURL url: String, completionHandler: @escaping (UIImage) -> ()) {
         if let imageFromCache = EventListViewModel.imageCache.object(forKey: url as NSString) {
-            view.image = imageFromCache
-            return
+            completionHandler(imageFromCache)
         } else {
             apiRequester.downloadImage(fromURL: url) { data in
                 DispatchQueue.main.async {
                     guard let data = data else { return }
                     let imageToCache = UIImage(data: data)
-                    EventListViewModel.imageCache.setObject(imageToCache ?? UIImage(named: "NotFound.jpg")!, forKey: url as NSString)
-                    view.image = imageToCache != nil ? imageToCache : UIImage(named: "NotFound.jpg")
+                    let notFoundImage = UIImage(named: "NotFound.jpg")!
+                    EventListViewModel.imageCache.setObject(imageToCache ?? notFoundImage, forKey: url as NSString)
+                    completionHandler(imageToCache ?? notFoundImage)
                 }
             }
         }

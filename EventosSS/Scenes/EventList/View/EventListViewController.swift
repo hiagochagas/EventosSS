@@ -12,24 +12,24 @@ class EventListViewController: UIViewController {
     private let contentView = EventListView()
     private let viewModel = EventListViewModel()
     private let cellIdentifier = "EventListCellIdentifier"
-    private var events: [Event] {
-        get {
-            return viewModel.events
-        }
-    }
+    private var events: [Event]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewController = self
-        viewModel.getAllEvents()
         contentView.tableView.register(EventTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
         view = contentView
+        getEvents()
     }
     
-    public func reloadData() {
-        contentView.tableView.reloadData()
+    public func getEvents() {
+        viewModel.getAllEvents { events in
+            DispatchQueue.main.async {
+                self.events = events
+                self.contentView.tableView.reloadData()
+            }
+        }
     }
 
 }
@@ -41,18 +41,23 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return events?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! EventTableViewCell
-        let event = events[indexPath.row]
-        cell.eventNameLabel.text = event.title
-        cell.eventDescriptionLabel.text = event.description
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        cell.eventDateLabel.text = dateFormatter.string(from: event.date)
-        viewModel.fetchImage(fromURL: event.imageURL, toView: cell.eventImageView)
+        if let event = events?[indexPath.row] {
+            cell.eventNameLabel.text = event.title
+            cell.eventDescriptionLabel.text = event.description
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            cell.eventDateLabel.text = dateFormatter.string(from: event.date)
+            viewModel.fetchImage(fromURL: event.imageURL) { image in
+                DispatchQueue.main.async {
+                    cell.eventImageView.image = image
+                }
+            }
+        }
         return cell
     }
     
