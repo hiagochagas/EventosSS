@@ -42,6 +42,14 @@ class EventTableViewCell: UITableViewCell {
         return lbl
     }()
     
+    public let eventPriceLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "R$ 00,00"
+        lbl.font = .systemFont(ofSize: 15, weight: .regular)
+        return lbl
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubviews()
@@ -53,6 +61,7 @@ class EventTableViewCell: UITableViewCell {
         self.addSubview(eventNameLabel)
         self.addSubview(eventDescriptionLabel)
         self.addSubview(eventDateLabel)
+        self.addSubview(eventPriceLabel)
     }
     
     private func addConstraints() {
@@ -69,7 +78,9 @@ class EventTableViewCell: UITableViewCell {
             eventDescriptionLabel.leftAnchor.constraint(equalTo: eventNameLabel.leftAnchor, constant: 0),
             eventDescriptionLabel.topAnchor.constraint(equalTo: eventDateLabel.bottomAnchor, constant: 8),
             eventDescriptionLabel.rightAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
-            eventDescriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            eventDescriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            eventPriceLabel.leftAnchor.constraint(equalTo: eventDateLabel.rightAnchor, constant: 8),
+            eventPriceLabel.topAnchor.constraint(equalTo: eventDateLabel.topAnchor, constant: 0)
         ])
     }
     

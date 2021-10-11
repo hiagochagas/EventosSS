@@ -52,6 +52,7 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"
             cell.eventDateLabel.text = dateFormatter.string(from: event.date)
+            cell.eventPriceLabel.text = "R$ \(event.price)"
             viewModel.fetchImage(fromURL: event.imageURL) { image in
                 DispatchQueue.main.async {
                     cell.eventImageView.image = image

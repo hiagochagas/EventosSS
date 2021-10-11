@@ -14,12 +14,14 @@ struct Event {
     public let date: Date
     public let description: String
     public let imageURL: String
+    public let price: Double
     
-    public init(title: String, date: Date, description: String, imageURL: String, people: [Person]) {
+    public init(title: String, date: Date, description: String, imageURL: String, people: [Person], price: Double) {
         self.title = title
         self.date = date
         self.description = description
         self.imageURL = imageURL
         self.people = people
+        self.price = price
     }
 }

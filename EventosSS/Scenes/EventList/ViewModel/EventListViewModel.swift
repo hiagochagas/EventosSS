@@ -23,7 +23,7 @@ class EventListViewModel {
                         let people = eventDAO.people.map { person in
                             return Person(name: person.name, email: person.email)
                         }
-                        let event = Event(title: eventDAO.title, date: date, description: eventDAO.description, imageURL: eventDAO.imageURL, people: people)
+                        let event = Event(title: eventDAO.title, date: date, description: eventDAO.description, imageURL: eventDAO.imageURL, people: people, price: eventDAO.price)
                         events.append(event)
                     }
                     completionHandler(events)
