@@ -16,6 +16,7 @@ class EventListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.largeTitleDisplayMode = .always
         contentView.tableView.register(EventTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
@@ -60,6 +61,14 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! EventTableViewCell
+        let viewController = EventDetailsViewController()
+        viewController.event = events?[indexPath.row]
+        viewController.eventImage = cell.eventImageView.image
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     
