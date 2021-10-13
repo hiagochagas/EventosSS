@@ -50,6 +50,22 @@ class APIRequesterTests: XCTestCase {
         wait(for: [promise], timeout: 5.0)
     }
     
+    func test_sendPostRequest_shouldReturnData() {
+        let promise = expectation(description: "The post request returned an response")
+        sut?.sendCheckIn(eventId: 1, userName: "Otávio", userEmail: "otavio_souza@gmail.com", completionHandler: { (data, error) in
+            if error != nil {
+                XCTFail("Error returned different than nil: \(error.debugDescription)")
+                return
+            }
+            if data == nil {
+                XCTFail("Data returned equal to nil")
+                return
+            }
+            promise.fulfill()
+        })
+        wait(for: [promise], timeout: 5.0)
+    }
+    
     override func tearDown() {
         sut = nil
     }
