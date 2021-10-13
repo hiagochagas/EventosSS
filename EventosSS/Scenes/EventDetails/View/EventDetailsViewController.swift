@@ -55,12 +55,47 @@ class EventDetailsViewController: UIViewController {
     }
     
     @objc private func checkInUser() {
-        viewModel.checkIn(forEventId: 1, userName: "Otávio", userEmail: "otavio_souza@gmail.com") { result in
-            if result {
-                print("Everything worked out")
-            } else {
-                print("Something went wrong")
+        let alert = UIAlertController(title: "Preencha seus dados", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Nome"
+        })
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Email"
+        })
+        
+        alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { action in
+            guard let name = alert.textFields?[0].text, name != "" else {
+                self.showTimerAlert("Dados incompletos", message: "Por favor preencher o campo do nome", timer: 2.0)
+                return
             }
+            guard let email = alert.textFields?[1].text, email != "" else {
+                self.showTimerAlert("Dados incompletos", message: "Por favor preencher o campo do email", timer: 2.0)
+                return
+            }
+            self.checkIn(withEventID: self.event?.id ?? 0, userName: name, userEmail: email)
+        }))
+        self.present(alert, animated: true)
+    }
+    
+    private func checkIn(withEventID id: Int, userName name: String, userEmail email: String) {
+        viewModel.checkIn(forEventId: id, userName: name, userEmail: email) { result in
+            if result {
+                self.showTimerAlert("Parabéns!", message: "Você fez o check in com sucesso", timer: 3.5)
+            } else {
+                self.showTimerAlert("Algo deu errado", message: "Você não conseguiu fazer o check in", timer: 3.5)
+            }
+        }
+    }
+    
+    private func showTimerAlert(_ title: String, message: String, timer: Double) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+        let when = DispatchTime.now() + timer
+        DispatchQueue.main.asyncAfter(deadline: when){
+            alert.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 struct Event {
+    public var id: Int
     public var people: [Person]
     public let title: String
     public let date: Date
@@ -16,7 +17,8 @@ struct Event {
     public let imageURL: String
     public let price: Double
     
-    public init(title: String, date: Date, description: String, imageURL: String, people: [Person], price: Double) {
+    public init(id: Int, title: String, date: Date, description: String, imageURL: String, people: [Person], price: Double) {
+        self.id = id
         self.title = title
         self.date = date
         self.description = description
