@@ -9,8 +9,12 @@ import Foundation
 import UIKit
 
 class APIRequester {
+    public static let shared: APIRequester = APIRequester()
     private let apiURL = "http://5f5a8f24d44d640016169133.mockapi.io/api/events"
+    private let checkInUrl = "http://5f5a8f24d44d640016169133.mockapi.io/api/checkin"
     private let session: URLSession = URLSession.shared
+    
+    private init() { }
     
     public func fetchAllEvents(completion: @escaping ([EventDAO]?, Error?) -> ()) {
         guard let url = URL(string: apiURL) else { return }
@@ -43,6 +47,22 @@ class APIRequester {
             }
         })
         task.resume()
-        
+    }
+    
+    func sendCheckIn(eventId id: Int, userName name: String, userEmail email: String, completionHandler: @escaping (Data?, Error?) -> Void) {
+        guard let url = URL(string: checkInUrl) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let postData = "id:\(id)&name:\(name)&email:\(email)".data(using: .utf8)
+        request.httpBody = postData
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                completionHandler(nil, error)
+            }
+            if let data = data {
+                completionHandler(data, nil)
+            }
+        }
+        task.resume()
     }
 }

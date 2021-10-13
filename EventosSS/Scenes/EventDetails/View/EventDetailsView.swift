@@ -49,6 +49,15 @@ class EventDetailsView: UIView {
         return lbl
     }()
     
+    let checkInButton: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Check In", for: .normal)
+        btn.backgroundColor = .systemBlue
+        btn.layer.cornerRadius = 20
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     public let scrollView: UIScrollView = {
         let scrll = UIScrollView(frame: .zero)
         scrll.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +88,7 @@ class EventDetailsView: UIView {
         containerScrollView.addSubview(eventDateLabel)
         containerScrollView.addSubview(eventDescriptionLabel)
         containerScrollView.addSubview(eventPriceLabel)
+        containerScrollView.addSubview(checkInButton)
     }
     
     private func setupConstraints() {
@@ -106,7 +116,11 @@ class EventDetailsView: UIView {
             eventDescriptionLabel.topAnchor.constraint(equalTo: eventDateLabel.bottomAnchor, constant: 8),
             eventDescriptionLabel.leftAnchor.constraint(equalTo: eventDateLabel.leftAnchor),
             eventDescriptionLabel.rightAnchor.constraint(equalTo: containerScrollView.rightAnchor, constant: -16),
-            eventDescriptionLabel.bottomAnchor.constraint(equalTo: containerScrollView.bottomAnchor, constant: -16)
+            checkInButton.topAnchor.constraint(equalTo: eventDescriptionLabel.bottomAnchor, constant: 8),
+            checkInButton.centerXAnchor.constraint(equalTo: containerScrollView.centerXAnchor, constant: 0),
+            checkInButton.widthAnchor.constraint(equalToConstant: 200),
+            checkInButton.heightAnchor.constraint(equalToConstant: 50),
+            checkInButton.bottomAnchor.constraint(equalTo: containerScrollView.bottomAnchor, constant: -16)
         ])
     }
 }

@@ -11,11 +11,13 @@ class EventDetailsViewController: UIViewController {
     public var event: Event?
     public var eventImage: UIImage?
     private let contentView = EventDetailsView()
+    private let viewModel = EventDetailsViewModel()
     override func viewDidLoad() {
         self.view = contentView
         self.navigationItem.largeTitleDisplayMode = .never
         fullfilContentView()
         shareButtonSetup()
+        checkInButtonSetup()
     }
     
     private func fullfilContentView() {
@@ -33,6 +35,10 @@ class EventDetailsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(shareButtonTapped))
     }
     
+    private func checkInButtonSetup() {
+        contentView.checkInButton.addTarget(self, action: #selector(checkInUser), for: .touchUpInside)
+    }
+    
     @objc private func shareButtonTapped() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -46,5 +52,15 @@ class EventDetailsViewController: UIViewController {
         """
         let activityController = UIActivityViewController(activityItems: [message], applicationActivities: nil)
         present(activityController, animated: true) { }
+    }
+    
+    @objc private func checkInUser() {
+        viewModel.checkIn(forEventId: 1, userName: "Otávio", userEmail: "otavio_souza@gmail.com") { result in
+            if result {
+                print("Everything worked out")
+            } else {
+                print("Something went wrong")
+            }
+        }
     }
 }

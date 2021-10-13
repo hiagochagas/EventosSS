@@ -10,7 +10,7 @@ import UIKit
 
 class EventListViewModel {
     
-    private let apiRequester = APIRequester()
+    private let apiRequester = APIRequester.shared
     private static let imageCache = NSCache<NSString, UIImage>()
     
     func getAllEvents(completionHandler: @escaping ([Event]) -> Void) {

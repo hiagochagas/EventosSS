@@ -12,7 +12,7 @@ class APIRequesterTests: XCTestCase {
     var sut: APIRequester?
     
     override func setUp() {
-        sut = APIRequester()
+        sut = APIRequester.shared
     }
     
     func test_getEvents_shouldNotBeEmpty() {
